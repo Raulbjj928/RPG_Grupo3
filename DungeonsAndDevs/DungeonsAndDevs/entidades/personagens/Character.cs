@@ -22,7 +22,27 @@ namespace DungeonsAndDevs.Entidades.Personagens
 
 		public int CalculateDamage(int damage, DamageTypes damageType, int targetDefense, int targetHealth)
 		{
-            return targetHealth;
+			double calcDamage = damage;
+			foreach (DamageTypes dt in Disadvantages)
+			{
+				if (dt == damageType)
+				{
+					calcDamage *= 1.20;
+					break;
+				}
+			}
+			foreach (DamageTypes dt in Advantages)
+			{
+				if (dt == damageType)
+				{
+					calcDamage *= 0.80;
+					break;
+				}
+			}
+			double reducaoDeDano = targetDefense / (targetDefense + 40);
+			double vidaFinal = targetHealth - (calcDamage - (calcDamage * reducaoDeDano));
+			targetHealth = (int)vidaFinal;
+			return targetHealth;
 		}
 	}
 }
