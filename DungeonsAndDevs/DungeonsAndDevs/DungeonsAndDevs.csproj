@@ -50,7 +50,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Aplicação\Jogo\Combate\" />
     <Folder Include="Application\Batles\" />
     <Folder Include="Application\Game\" />
     <Folder Include="Entities\Characters\" />
