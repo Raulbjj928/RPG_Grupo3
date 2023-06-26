@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DungeonsAndDevs.Entidades.Personagens.Inimigos
+namespace DungeonsAndDevs.Entities.Personagens.Inimigos
 {
 	public class Enemy : Character
 	{

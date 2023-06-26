@@ -51,7 +51,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Aplicação\Jogo\Combate\" />
-    <Folder Include="Entidades\Personagens\" />
+    <Folder Include="Application\Batles\" />
+    <Folder Include="Application\Game\" />
+    <Folder Include="Entities\Characters\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
