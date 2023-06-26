@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DungeonsAndDevs.Entidades.Personagens.Herois
+namespace DungeonsAndDevs.Entities.Characters.Heros
 {
     // Mergulhador
     public class Diver : Character

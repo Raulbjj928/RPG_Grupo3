@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DungeonsAndDevs.Entidades.Personagens.Herois
+namespace DungeonsAndDevs.Entities.Characters.Heros
 {
     // Mosqueteiro
     public class Musketeer : Character
@@ -39,9 +39,5 @@ namespace DungeonsAndDevs.Entidades.Personagens.Herois
             double newHealth = health * preparation;
             return Convert.ToInt32(newHealth);
         }
-
-
-
-
     }
 }
