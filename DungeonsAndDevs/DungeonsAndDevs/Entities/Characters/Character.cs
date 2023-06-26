@@ -7,7 +7,7 @@ using DungeonsAndDevs.Utils;
 
 
 
-namespace DungeonsAndDevs.Entidades.Personagens
+namespace DungeonsAndDevs.Entities.Characters
 {
 	public abstract class Character
 	{
