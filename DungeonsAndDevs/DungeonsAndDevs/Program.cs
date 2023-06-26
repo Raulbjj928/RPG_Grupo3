@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DungeonsAndDevs.Application.Game;
+using DungeonsAndDevs.Application.Game.ImgsAsc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +12,11 @@ namespace DungeonsAndDevs
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello");
+            GameStart game = new GameStart();
+            ImagesAsc image = new ImagesAsc();
+
+            game.Start();
+            Console.ReadKey();
         }
     }
 }
