@@ -36,9 +36,11 @@ namespace DungeonsAndDevs.Entities.Characters
                     calcDamage *= 0.80;
                 }
             }
+
             double damageReduction = targetDefense / (targetDefense + 40);
             double finalHealth = targetHealth - (calcDamage - (calcDamage * damageReduction));
             targetHealth = (int)finalHealth;
+
             return targetHealth;
         }
         //Fire = 70%
