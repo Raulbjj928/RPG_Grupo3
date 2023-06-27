@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DungeonsAndDevs.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,13 +17,26 @@ namespace DungeonsAndDevs.Entities.Characters.Enemies
             Health = 95;
             Strength = 20;
             Defense = 20;
-            Skills.Add(new Utils.Skill("Esmagamento Profundo", DamageType.Impact, 10, 5, false));
-            Skills.Add(new Utils.Skill("Sopro Tempestuoso", DamageType.Eletric, 10, 5, false));
-            Skills.Add(new Utils.Skill("Abraço Abissal", DamageType.Puncture, 10, 5, false));
-            //Skills.Add(new Utils.Skill("Olhar dos afogados", DamageType.???, 10, 0, false)); Modifica atributo
-            Advantages.Add(DamageType.Puncture);
-            Advantages.Add(DamageType.Poison);
-            Disadvantages.Add(DamageType.Fire);
+            Skills = new List<Skill>();
+            Skill skill1 = new Skill("Esmagamento Profundo", DamageType.Impact, 10, 5, false);
+            Skill skill2 = new Skill("Sopro Tempestuoso", DamageType.Eletric, 10, 5, false);
+            Skill skill3 = new Skill("Abraço Abissal", DamageType.Puncture, 10, 5, false);
+            //Skill skill4 = new Skill("Olhar dos afogados", DamageType.???, 10, 0, false); Modifica atributo
+            Skills.Add(skill1);
+            Skills.Add(skill2);
+            Skills.Add(skill3);
+
+            Advantages = new List<DamageType>
+                    {
+                        (DamageType)0,
+                        (DamageType)6
+                    };
+
+            Disadvantages = new List<DamageType>
+                    {
+                        (DamageType)3,
+                    };
+
             EnemyBaseXP = 75;
         }
     }

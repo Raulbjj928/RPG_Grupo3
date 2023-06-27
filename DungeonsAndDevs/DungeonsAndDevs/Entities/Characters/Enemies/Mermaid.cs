@@ -10,12 +10,24 @@
             Health = 110;
             Strength = 5;
             Defense = 20;
-            //Skills.Add(new Utils.Skill("Canto Hipnótico", DamageType.???, 10, 5, true)); Modifica atributo
-            Skills.Add(new Utils.Skill("Lança das Marés", DamageType.Puncture, 10, 5, true));
-            //Skills.Add(new Utils.Skill("Aurora Celeste", DamageType.???, 10, 5, true)); Modifica atributo
-            Skills.Add(new Utils.Skill("Cuspe ácido", DamageType.Poison, 10, 5, true));
-            Advantages.Add(DamageType.Bleed);
-            Disadvantages.Add(DamageType.Explosion);
+            Skills = new List<Skill>();
+            Skill skill1 = new Skill("Lança das Marés", DamageType.Puncture, 10, 5, true);
+            Skill skill2 = new Skill("Cuspe ácido", DamageType.Poison, 10, 5, true);
+            // Skill skill3 = new Skill("Canto Hipnótico", DamageType.???, 10, 5, true); Modifica atributo
+            // Skill skill4 = new Skill("Aurora Celeste", DamageType.???, 10, 5, true); Modifica atributo
+            Skills.Add(skill1);
+            Skills.Add(skill2);
+
+            Advantages = new List<DamageType>
+                    {
+                        (DamageType)4
+                    };
+
+            Disadvantages = new List<DamageType>
+                    {
+                        (DamageType)7
+                    };
+
             EnemyBaseXP = 45;
         }
     }

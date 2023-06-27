@@ -25,8 +25,8 @@ namespace DungeonsAndDevs.Entities.Characters.Heros
 
             Advantages = new List<DamageType>
                     {
-                        (DamageType)2,
-                        (DamageType)1
+                        (DamageType)1,
+                        (DamageType)4
                     };
 
             Disadvantages = new List<DamageType>

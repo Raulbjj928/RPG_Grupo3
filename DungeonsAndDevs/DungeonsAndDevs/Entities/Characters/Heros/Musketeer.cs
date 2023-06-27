@@ -13,9 +13,6 @@ namespace DungeonsAndDevs.Entities.Characters.Heros
     {
         public double Preparation { get; set; }
 
-
-        public Musketeer()  { }
-
         public Musketeer(string name)
         {
             Name = name;
@@ -23,14 +20,25 @@ namespace DungeonsAndDevs.Entities.Characters.Heros
             Health = IncreaseHealth(100, Preparation);
             Strength = 12;
             Defense = 10;
-            Skills.Add(new Skill("Tiro de Concussão", DamageType.Impact, 20, 0, false));
-            Skills.Add(new Skill("Tiro Penetrante", DamageType.Puncture, 16, 50, false));
-            Skills.Add(new Skill("Tiro Inflamável", DamageType.Explosion, 10, 0, false));
-            Advantages.Add(DamageType.Impact);
-            Advantages.Add(DamageType.Puncture);
-            Disadvantages.Add(DamageType.Bleed);
-            Disadvantages.Add(DamageType.Fire);
+            Skills = new List<Skill>();
+            Skill skill1 = new Skill("Tiro de Concussão", DamageType.Impact, 20, 0, false);
+            Skill skill2 = new Skill("Tiro Penetrante", DamageType.Puncture, 16, 50, false);
+            Skill skill3 = new Skill("Tiro Inflamável", DamageType.Explosion, 10, 0, false);
+            Skills.Add(skill1);
+            Skills.Add(skill2);
+            Skills.Add(skill3);
 
+            Advantages = new List<DamageType>
+                    {
+                        (DamageType)0,
+                        (DamageType)2
+                    };
+
+            Disadvantages = new List<DamageType>
+                    {
+                        (DamageType)4,
+                        (DamageType)3
+                    };
         }
 
         public int IncreaseHealth(int health, double preparation)
