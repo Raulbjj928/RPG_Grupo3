@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DungeonsAndDevs.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,11 +17,24 @@ namespace DungeonsAndDevs.Entities.Characters.Enemies
             Health = 105;
             Strength = 8;
             Defense = 15;
-            Skills.Add(new Utils.Skill("Frenesi Aquático", DamageType.Cut, 5, 0, false));
-            Skills.Add(new Utils.Skill("Investida Coletiva", DamageType.Puncture, 5, 0, false));
-            Skills.Add(new Utils.Skill("Redemoinho Prateado", DamageType.Bleed, 5, 0, false));
-            Advantages.Add(DamageType.Puncture);
-            Disadvantages.Add(DamageType.Explosion);
+            Skills = new List<Skill>();
+            Skill skill1 = new Skill("Frenesi Aquático", DamageType.Cut, 5, 0, false);
+            Skill skill2 = new Skill("Investida Coletiva", DamageType.Puncture, 5, 0, false);
+            Skill skill3 = new Skill("Redemoinho Prateado", DamageType.Bleed, 5, 0, false);
+            Skills.Add(skill1);
+            Skills.Add(skill2);
+            Skills.Add(skill3);
+
+            Advantages = new List<DamageType>
+                    {
+                        (DamageType)2,
+                    };
+
+            Disadvantages = new List<DamageType>
+                    {
+                        (DamageType)7
+                    };
+
             EnemyBaseXP = 3;
         }
     }

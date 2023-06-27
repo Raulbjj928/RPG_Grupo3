@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DungeonsAndDevs.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,11 +17,24 @@ namespace DungeonsAndDevs.Entities.Characters.Enemies
             Health = 110;
             Strength = 20;
             Defense = 5;
-            Skills.Add(new Utils.Skill("Fúria das Profundezas", DamageType.Impact, 10, 5, false));
-            Skills.Add(new Utils.Skill("Mordida Devastadora", DamageType.Bleed, 10, 5, false));
-            Skills.Add(new Utils.Skill("Torrente Sanguinária", DamageType.Impact, 10, 5, false));
-            Advantages.Add(DamageType.Cut);
-            Disadvantages.Add(DamageType.Impact);
+            Skills = new List<Skill>();
+            Skill skill1 = new Skill("Fúria das Profundezas", DamageType.Impact, 10, 5, false);
+            Skill skill2 = new Skill("Mordida Devastadora", DamageType.Bleed, 10, 5, false);
+            Skill skill3 = new Skill("Torrente Sanguinária", DamageType.Impact, 10, 5, false);
+            Skills.Add(skill1);
+            Skills.Add(skill2);
+            Skills.Add(skill3);
+
+            Advantages = new List<DamageType>
+                    {
+                        (DamageType)1,
+                    };
+
+            Disadvantages = new List<DamageType>
+                    {
+                        (DamageType)0,
+                    };
+
             EnemyBaseXP = 30;
         }
     }
