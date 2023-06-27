@@ -6,3 +6,19 @@ C:\Users\User\Desktop\+DEVs2BLU\Trabalho RPG\RPG_Grupo3\DungeonsAndDevs\Dungeons
 C:\Users\User\Desktop\+DEVs2BLU\Trabalho RPG\RPG_Grupo3\DungeonsAndDevs\DungeonsAndDevs\obj\Debug\DungeonsAndDevs.csproj.CoreCompileInputs.cache
 C:\Users\User\Desktop\+DEVs2BLU\Trabalho RPG\RPG_Grupo3\DungeonsAndDevs\DungeonsAndDevs\obj\Debug\DungeonsAndDevs.exe
 C:\Users\User\Desktop\+DEVs2BLU\Trabalho RPG\RPG_Grupo3\DungeonsAndDevs\DungeonsAndDevs\obj\Debug\DungeonsAndDevs.pdb
+C:\Estudos\RPG_Grupo3\DungeonsAndDevs\DungeonsAndDevs\bin\Debug\DungeonsAndDevs.exe.config
+C:\Estudos\RPG_Grupo3\DungeonsAndDevs\DungeonsAndDevs\bin\Debug\DungeonsAndDevs.exe
+C:\Estudos\RPG_Grupo3\DungeonsAndDevs\DungeonsAndDevs\bin\Debug\DungeonsAndDevs.pdb
+C:\Estudos\RPG_Grupo3\DungeonsAndDevs\DungeonsAndDevs\obj\Debug\DungeonsAndDevs.csproj.AssemblyReference.cache
+C:\Estudos\RPG_Grupo3\DungeonsAndDevs\DungeonsAndDevs\obj\Debug\DungeonsAndDevs.csproj.SuggestedBindingRedirects.cache
+C:\Estudos\RPG_Grupo3\DungeonsAndDevs\DungeonsAndDevs\obj\Debug\DungeonsAndDevs.csproj.CoreCompileInputs.cache
+C:\Estudos\RPG_Grupo3\DungeonsAndDevs\DungeonsAndDevs\obj\Debug\DungeonsAndDevs.exe
+C:\Estudos\RPG_Grupo3\DungeonsAndDevs\DungeonsAndDevs\obj\Debug\DungeonsAndDevs.pdb
+C:\Users\elain\OneDrive\Área de Trabalho\C# - Devs2Blu\RPG Novo\RPG_Grupo3\DungeonsAndDevs\DungeonsAndDevs\bin\Debug\DungeonsAndDevs.exe.config
+C:\Users\elain\OneDrive\Área de Trabalho\C# - Devs2Blu\RPG Novo\RPG_Grupo3\DungeonsAndDevs\DungeonsAndDevs\bin\Debug\DungeonsAndDevs.exe
+C:\Users\elain\OneDrive\Área de Trabalho\C# - Devs2Blu\RPG Novo\RPG_Grupo3\DungeonsAndDevs\DungeonsAndDevs\bin\Debug\DungeonsAndDevs.pdb
+C:\Users\elain\OneDrive\Área de Trabalho\C# - Devs2Blu\RPG Novo\RPG_Grupo3\DungeonsAndDevs\DungeonsAndDevs\obj\Debug\DungeonsAndDevs.csproj.AssemblyReference.cache
+C:\Users\elain\OneDrive\Área de Trabalho\C# - Devs2Blu\RPG Novo\RPG_Grupo3\DungeonsAndDevs\DungeonsAndDevs\obj\Debug\DungeonsAndDevs.csproj.SuggestedBindingRedirects.cache
+C:\Users\elain\OneDrive\Área de Trabalho\C# - Devs2Blu\RPG Novo\RPG_Grupo3\DungeonsAndDevs\DungeonsAndDevs\obj\Debug\DungeonsAndDevs.csproj.CoreCompileInputs.cache
+C:\Users\elain\OneDrive\Área de Trabalho\C# - Devs2Blu\RPG Novo\RPG_Grupo3\DungeonsAndDevs\DungeonsAndDevs\obj\Debug\DungeonsAndDevs.exe
+C:\Users\elain\OneDrive\Área de Trabalho\C# - Devs2Blu\RPG Novo\RPG_Grupo3\DungeonsAndDevs\DungeonsAndDevs\obj\Debug\DungeonsAndDevs.pdb

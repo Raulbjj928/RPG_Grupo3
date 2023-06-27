@@ -1,11 +1,11 @@
 ﻿public enum DamageType
 {
-	impact,cut,puncture,fire,bleed,eletric,poison,explosion
+	Impact, Cut, Puncture, Fire, Bleed, Eletric, Poison, Explosion
 }
 //DOT = Damage Over Time
 public enum DOT
 {
-	fire,bleed,poison
+	Fire, Bleed, Poison
 }
 
 namespace DungeonsAndDevs.Utils
