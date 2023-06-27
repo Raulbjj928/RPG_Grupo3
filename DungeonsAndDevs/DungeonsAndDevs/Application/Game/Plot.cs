@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace DungeonsAndDevs.Application.Game
 {
-    internal class Plot
+    public class Plot
     {
+
     }
 }

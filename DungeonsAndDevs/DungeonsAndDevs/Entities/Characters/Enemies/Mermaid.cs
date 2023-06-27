@@ -1,4 +1,7 @@
-﻿namespace DungeonsAndDevs.Entities.Characters.Enemies
+﻿using DungeonsAndDevs.Utils;
+using System.Collections.Generic;
+
+namespace DungeonsAndDevs.Entities.Characters.Enemies
 {
     internal class Mermaid : Enemy
     {

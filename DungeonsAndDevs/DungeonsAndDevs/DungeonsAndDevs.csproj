@@ -46,6 +46,7 @@
     <Compile Include="Application\Game\Batles\Batle.cs" />
     <Compile Include="Application\Game\GameStart.cs" />
     <Compile Include="Application\Game\ImgsAsc\ImagesAsc.cs" />
+    <Compile Include="Application\Game\Plot.cs" />
     <Compile Include="Entities\Characters\Enemies\Jellyfish.cs" />
     <Compile Include="Entities\Characters\Enemies\Megalodon.cs" />
     <Compile Include="Entities\Characters\Enemies\Mermaid.cs" />
