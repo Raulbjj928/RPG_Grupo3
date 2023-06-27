@@ -23,7 +23,6 @@ namespace DungeonsAndDevs.Entities.Characters.Enemies
             Mullet mullet1 = new Mullet();
             Oktopus oktopus1 = new Oktopus();
             Shark shark1 = new Shark();
-
         }
     }
 }
