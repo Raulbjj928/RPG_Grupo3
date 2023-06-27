@@ -1,4 +1,5 @@
-﻿using DungeonsAndDevs.Utils;
+﻿using DungeonsAndDevs.Entidades.Characters.Players;
+using DungeonsAndDevs.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,26 +9,34 @@ using System.Threading.Tasks;
 namespace DungeonsAndDevs.Entities.Characters.Heros
 {
     // Mergulhador
-    public class Diver : Character
+    public class Diver : Player
     {
         public double ExcellentEquipment { get; set; }
 
-        public Diver(string name, List<Skill> skills, List<DamageType> advantages, List<DamageType> disadvantages,
-            List<DOT> ativeDOTs, List<int> dotTurnsToWearOff)
+        public Diver(string name)
         {
-            if(name == null)
-            {
-                Name = "Orion Deepwater";
-            }
-            ExcellentEquipment = 0.5;
+            Name = name;
             Health = 130;
             Strength = 5;
+            ExcellentEquipment = 0.5;
             Defense = IncreaseDefense(20, ExcellentEquipment);
-            Skills = skills;
-            Advantages = advantages;
-            Disadvantages = disadvantages;
-            ActiveDOTs = ativeDOTs;
-            DOTTurnsToWearOff = dotTurnsToWearOff;
+            Skills = new List<Skill>();
+            Skill skill1 = new Skill("Tiro de arpão", DamageType.Puncture, 20, 20, false);
+            Skill skill2 = new Skill("Espetada de arpão", DamageType.Bleed, 10, 0, false);
+            Skills.Add(skill1);
+            Skills.Add(skill2);
+
+            Advantages = new List<DamageType>
+                    {
+                        (DamageType)2,
+                        (DamageType)1
+                    };
+
+            Disadvantages = new List<DamageType>
+                    {
+                        (DamageType)5,
+                        (DamageType)7
+                    };
         }
 
         public int IncreaseDefense(int defense, double excellentEquipment)
@@ -38,3 +47,4 @@ namespace DungeonsAndDevs.Entities.Characters.Heros
 
     }
 }
+

@@ -46,7 +46,7 @@
     <Compile Include="Application\Game\GameStart.cs" />
     <Compile Include="Application\Game\ImgsAsc\ImagesAsc.cs" />
     <Compile Include="Entities\Characters\Heros\Diver.cs" />
-    <Compile Include="Entities\Characters\Heros\Gunner.cs" />
+    <Compile Include="Entities\Characters\Heros\Bombardier.cs" />
     <Compile Include="Entities\Characters\Heros\Musketeer.cs" />
     <Compile Include="Entities\Characters\Character.cs" />
     <Compile Include="Entities\Characters\Enemies\Enemy.cs" />
