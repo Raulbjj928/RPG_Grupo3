@@ -26,7 +26,7 @@ namespace DungeonsAndDevs.Application.Game
 
             //escolha do personagem e definição do nome
             Player player = new Player();
-            player.PlayerClass = (PlayerClass)0;
+            player.PlayerClass = (PlayerClass)1;
             //player.Name = ChangeName();
             player.Name = "Teste";
             player.SetInitialStats();
