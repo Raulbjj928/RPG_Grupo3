@@ -29,7 +29,6 @@ namespace DungeonsAndDevs.Entities.Characters.Heros
             Advantages.Add(DamageType.Fire);
             Disadvantages.Add(DamageType.Cut);
             Disadvantages.Add(DamageType.Puncture);
-
         }
 
         public int IncreaseStrength(int strength, double pyrotechnics)

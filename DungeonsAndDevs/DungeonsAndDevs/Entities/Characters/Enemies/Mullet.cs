@@ -10,9 +10,9 @@ namespace DungeonsAndDevs.Entities.Characters.Enemies
     {
         public Mullet() 
         {
-            Name = "School of Mullets";
+            Name = "Mullet";
             EnemyType = "Monster";
-            EnemyLevel = 2;
+            EnemyLevel = 1;
             Health = 105;
             Strength = 8;
             Defense = 15;

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using DungeonsAndDevs.Application.Game.Batles;
 using DungeonsAndDevs.Application.Game.ImgsAsc;
 using DungeonsAndDevs.Entidades.Characters.Players;
 using DungeonsAndDevs.Entities.Characters;
@@ -12,6 +13,7 @@ namespace DungeonsAndDevs.Application.Game
         public GameStart() { }
 
         ImagesAsc imgsAsc = new ImagesAsc() { };
+        Batle batles = new Batle();
 
         public void Start()
         {
@@ -31,7 +33,7 @@ namespace DungeonsAndDevs.Application.Game
             player.Name = "Teste";
             player.SetInitialStats();
             string showPlayer = $"Esses são os dados do seu herói: \n";
-            ShowPlayer(player); 
+            batles.ShowPlayer(player); 
 
             DisplayTextLetterByLetter(showPlayer, 1);
 
@@ -75,100 +77,6 @@ namespace DungeonsAndDevs.Application.Game
             //EXIBIR XP, PONTOS, VIDA ETC...
 
             Console.WriteLine();
-        }
-        public void DisplayTextLetterByLetter(string txt, int vel)
-        {
-            foreach (char letter in txt)
-            {
-                Console.Write(letter);
-                Thread.Sleep(vel);
-            }
-
-            Console.WriteLine();
-        }
-        private int ChangeCharacter()
-        {
-            while (true)
-            {
-                string txt = $"Escolha o herói que deseja para embarcar nessa aventura:\n" +
-                            $"   0 - Mergulhador\n" +
-                            $"   1 - Artilheiro\n" +
-                            $"   2 - Mosqueteiro\n";
-
-                DisplayTextLetterByLetter(txt, 5);
-
-                int option = int.Parse(Console.ReadLine());
-
-                if (option == 0 || option == 1 || option == 2)
-                {
-                    return option;
-                }
-                else
-                {
-                    Console.WriteLine("Escolha uma opção valida!");
-                }
-            }
-        }
-        private string ChangeName()
-        {
-            string txt = " Digite o nome do seu Herói lendario: ";
-            DisplayTextLetterByLetter(txt, 10);
-            string name = Console.ReadLine();
-
-            return name;
-        }
-        private void ShowPlayer(Player player)
-        {
-            Console.WriteLine($" =+=+=+=+=+=+=+=+ Estatisticas do Sr(a) {player.Name} =+=+=+=+=+=+=+=+\n\n" +
-                                $"                  Classe : {player.PlayerClass}\n" +
-                                $"                  Vida : {player.Health} \n" +
-                                $"                  Defesa : {player.Defense} \n" +
-                                $"                  Força : {player.Strength} \n");
-
-            Console.WriteLine("=+=+=+=+=+=+=+=+ Habilidades =+=+=+=+=+=+=+=+\n");
-
-            foreach (var item in player.Skills)
-            {
-                Console.WriteLine($"*********** {item.Name} *********** \n" +
-                                  $"                Tipo : {item.Type}\n" +
-                                  $"                Dano em armadura: {item.ArmorPenetration}\n");
-            }
-
-            Console.WriteLine("=+=+=+=+=+=+=+=+ Vantagens =+=+=+=+=+=+=+=+");
-            foreach (var item in player.Advantages)
-            {
-                Console.WriteLine(item.ToString());
-            }
-
-            Console.WriteLine("=+=+=+=+=+=+=+=+ Desvantagens =+=+=+=+=+=+=+=+");
-            foreach (var item in player.Disadvantages)
-            {
-                Console.WriteLine(item.ToString());
-            }
-            Console.WriteLine("=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n");
-        }
-        private Skill ChangeSkill(Player player)
-        {
-            while (true)
-            {
-                string txt = $"Escolha a habilidade que deseja usar:\n" +
-                            $"   0 - {player.Skills[0].Name}" +
-                            $"   1 - {player.Skills[1].Name}\n";
-
-                DisplayTextLetterByLetter(txt, 1);
-
-                int option = int.Parse(Console.ReadLine());
-
-                if (option == 0 || option == 1)
-                {
-                    if (option == 0) return player.Skills[0];
-                    else return player.Skills[1];
-                }
-                else
-                {
-                    Console.WriteLine("Escolha uma opção valida!");
-                }
-            }
         }
     }
 }

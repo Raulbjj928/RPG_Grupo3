@@ -1,20 +1,12 @@
-﻿using DungeonsAndDevs.Utils;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
-
-namespace DungeonsAndDevs.Entities.Characters.Enemies
+﻿namespace DungeonsAndDevs.Entities.Characters.Enemies
 {
     internal class Mermaid : Enemy
     {
-        public Mermaid() 
+        public Mermaid()
         {
             Name = "Nerida (Cursed Mermaid)";
             EnemyType = "Boss";
-            EnemyLevel = 20;
+            EnemyLevel = 2;
             Health = 110;
             Strength = 5;
             Defense = 20;

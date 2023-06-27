@@ -10,9 +10,9 @@ namespace DungeonsAndDevs.Entities.Characters.Enemies
     {
         public Jellyfish() 
         {
-            Name = "jellyfish";
+            Name = "Jellyfish";
             EnemyType = "Monster";
-            EnemyLevel = 3;
+            EnemyLevel = 1;
             Health = 98;
             Strength = 15;
             Defense = 15;

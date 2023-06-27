@@ -2,9 +2,6 @@
 using DungeonsAndDevs.Utils;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DungeonsAndDevs.Entities.Characters.Heros
 {
@@ -44,7 +41,6 @@ namespace DungeonsAndDevs.Entities.Characters.Heros
             double newDefense = defense * excellentEquipment;
             return Convert.ToInt32(newDefense);
         }
-
     }
 }
 

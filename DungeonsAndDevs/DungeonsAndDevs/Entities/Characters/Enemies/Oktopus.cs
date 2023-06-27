@@ -12,7 +12,7 @@ namespace DungeonsAndDevs.Entities.Characters.Enemies
         {
             Name = "Kraken (Giant Oktopus)";
             EnemyType = "Boss";
-            EnemyLevel = 30;
+            EnemyLevel = 3;
             Health = 95;
             Strength = 20;
             Defense = 20;

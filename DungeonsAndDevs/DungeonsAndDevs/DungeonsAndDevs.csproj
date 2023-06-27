@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Application\Game\Batles\Batle.cs" />
     <Compile Include="Application\Game\GameStart.cs" />
     <Compile Include="Application\Game\ImgsAsc\ImagesAsc.cs" />
     <Compile Include="Entities\Characters\Enemies\Jellyfish.cs" />
@@ -67,7 +68,6 @@
     <None Include="bin\Debug\DungeonsAndDevs.exe.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Application\Batles\" />
     <Folder Include="bin\Release\" />
   </ItemGroup>
   <ItemGroup>

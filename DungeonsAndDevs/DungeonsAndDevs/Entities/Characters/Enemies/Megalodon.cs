@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DungeonsAndDevs.Entities.Characters.Enemies
+﻿namespace DungeonsAndDevs.Entities.Characters.Enemies
 {
     internal class Megalodon : Enemy
     {
-        public Megalodon() 
+        public Megalodon()
         {
             Name = "Vorax (Megalodon)";
             EnemyType = "Boss";
-            EnemyLevel = 10;
+            EnemyLevel = 2;
             Health = 110;
             Strength = 20;
             Defense = 5;

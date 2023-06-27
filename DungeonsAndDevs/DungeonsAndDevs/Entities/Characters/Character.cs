@@ -49,7 +49,7 @@ namespace DungeonsAndDevs.Entities.Characters
         protected void ApplyDOT(DamageType damageType)
         {
             Random random = new Random();
-            int proc = 0;
+            int proc;
             switch (damageType)
             {
                 case DamageType.Fire:
