@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Application\Batles\" />
+    <Folder Include="bin\Release\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="bin\Debug\DungeonsAndDevs.exe" />
