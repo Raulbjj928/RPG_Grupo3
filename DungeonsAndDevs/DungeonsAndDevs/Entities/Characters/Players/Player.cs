@@ -1,4 +1,5 @@
 ﻿using DungeonsAndDevs.Entities.Characters;
+using DungeonsAndDevs.Entities.Characters.Heros;
 using DungeonsAndDevs.Utils;
 using System;
 using System.Collections.Generic;
@@ -23,54 +24,22 @@ namespace DungeonsAndDevs.Entidades.Characters.Players
             switch (PlayerClass)
             {
                 case PlayerClass.Diver:
-                    Health = 130;
-                    Strength = 5;
-                    Defense = 20;
-                    Skills = new List<Skill>();
-                    Skill skill1 = new Skill("Tiro de arpão", DamageType.Puncture, 20, 20, false);
-                    Skill skill2 = new Skill("Espetada de arpão", DamageType.Bleed, 10, 0, false);
-                    Skills.Add(skill1);
-                    Skills.Add(skill2);
-
-                    Advantages = new List<DamageType>
-                    {
-                        (DamageType)2,
-                        (DamageType)1
-                    };
-
-                    Disadvantages = new List<DamageType>
-                    {
-                        (DamageType)5,
-                        (DamageType)7
-                    };
+                    Diver diver = new Diver(Name);
+                    FillData(diver);
                     break;
 
                 case PlayerClass.Bombardier:
-                    Health = 100;
-                    Strength = 10;
-                    Defense = 5;
-                    Skills.Add(new Skill("Dinamite", DamageType.Explosion, 25, 0, true));
-                    Skills.Add(new Skill("Molotov", DamageType.Fire, 5, 0, true));
-                    Skills.Add(new Skill("Granada de Ferro", DamageType.Explosion, 15, 50, true));
-                    Advantages.Add(DamageType.Fire);
-                    Disadvantages.Add(DamageType.Cut);
-                    Disadvantages.Add(DamageType.Puncture);
+                    Bombardier bombardier = new Bombardier(Name);
+                    FillData(bombardier);
                     break;
 
                 case PlayerClass.Musketeer:
-                    Health = 100;
-                    Strength = 12;
-                    Defense = 10;
-                    Skills.Add(new Skill("Tiro de Concussão", DamageType.Impact, 20, 0, false));
-                    Skills.Add(new Skill("Tiro Penetrante", DamageType.Puncture, 16, 50, false));
-                    Skills.Add(new Skill("Tiro Inflamável", DamageType.Explosion, 10, 0, false));
-                    Advantages.Add(DamageType.Impact);
-                    Advantages.Add(DamageType.Puncture);
-                    Disadvantages.Add(DamageType.Bleed);
-                    Disadvantages.Add(DamageType.Fire);
+                    Musketeer musketeer = new Musketeer(Name);
+                    FillData(musketeer);
                     break;
             }
         }
+
         private void pickName()
         {
             Random random = new Random();
@@ -136,6 +105,18 @@ namespace DungeonsAndDevs.Entidades.Characters.Players
                     }
                     break;
             }
+        }
+
+        private void FillData(Player player)
+        {
+            Name = player.Name;
+            Health = player.Health;
+            Strength = player.Strength;
+            Defense = player.Defense;
+            Skills = player.Skills;
+            Advantages = player.Advantages;
+            Disadvantages = player.Disadvantages;
+
         }
     }
 }

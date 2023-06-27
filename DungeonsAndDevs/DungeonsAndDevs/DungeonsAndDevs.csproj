@@ -52,7 +52,7 @@
     <Compile Include="Entities\Characters\Enemies\Oktopus.cs" />
     <Compile Include="Entities\Characters\Enemies\Shark.cs" />
     <Compile Include="Entities\Characters\Heros\Diver.cs" />
-    <Compile Include="Entities\Characters\Heros\Gunner.cs" />
+    <Compile Include="Entities\Characters\Heros\Bombardier.cs" />
     <Compile Include="Entities\Characters\Heros\Musketeer.cs" />
     <Compile Include="Entities\Characters\Character.cs" />
     <Compile Include="Entities\Characters\Enemies\Enemy.cs" />
