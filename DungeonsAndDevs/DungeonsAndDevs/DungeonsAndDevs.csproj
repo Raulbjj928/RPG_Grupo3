@@ -45,6 +45,12 @@
   <ItemGroup>
     <Compile Include="Application\Game\GameStart.cs" />
     <Compile Include="Application\Game\ImgsAsc\ImagesAsc.cs" />
+    <Compile Include="Entities\Characters\Enemies\Jellyfish.cs" />
+    <Compile Include="Entities\Characters\Enemies\Megalodon.cs" />
+    <Compile Include="Entities\Characters\Enemies\Mermaid.cs" />
+    <Compile Include="Entities\Characters\Enemies\Mullet.cs" />
+    <Compile Include="Entities\Characters\Enemies\Oktopus.cs" />
+    <Compile Include="Entities\Characters\Enemies\Shark.cs" />
     <Compile Include="Entities\Characters\Heros\Diver.cs" />
     <Compile Include="Entities\Characters\Heros\Gunner.cs" />
     <Compile Include="Entities\Characters\Heros\Musketeer.cs" />
