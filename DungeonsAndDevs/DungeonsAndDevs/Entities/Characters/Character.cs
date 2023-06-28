@@ -16,7 +16,6 @@ namespace DungeonsAndDevs.Entities.Characters
         public List<DamageType> Advantages { get; set; }
         public List<DamageType> Disadvantages { get; set; }
         public List<DOT> ActiveDOTs { get; set; }
-        public List<int> DOTTurnsToWearOff { get; set; }
 
         public int TakeSkillDamage(Skill skill, int targetDefense, int targetHealth)
         {
@@ -58,7 +57,6 @@ namespace DungeonsAndDevs.Entities.Characters
                     if (proc < 70)
                     {
                         ActiveDOTs.Add(DOT.Fire);
-                        DOTTurnsToWearOff.Add(3);
                     }
                     break;
                 case DamageType.Bleed:
@@ -66,7 +64,6 @@ namespace DungeonsAndDevs.Entities.Characters
                     if (proc < 60)
                     {
                         ActiveDOTs.Add(DOT.Bleed);
-                        DOTTurnsToWearOff.Add(5);
                     }
                     break;
                 case DamageType.Poison:
@@ -74,45 +71,8 @@ namespace DungeonsAndDevs.Entities.Characters
                     if (proc < 50)
                     {
                         ActiveDOTs.Add(DOT.Poison);
-                        DOTTurnsToWearOff.Add(7);
                     }
                     break;
-            }
-        }
-        public void UpdateDOTs()
-        {
-            for (int i = 0; i < ActiveDOTs.Count; i++)
-            {
-                switch (ActiveDOTs[i])
-                {
-                    case DOT.Fire:
-                        Health -= 10;
-                        DOTTurnsToWearOff[i]--;
-                        if (DOTTurnsToWearOff[i] == 0)
-                        {
-                            ActiveDOTs.Remove(ActiveDOTs[i]);
-                            DOTTurnsToWearOff.Remove(DOTTurnsToWearOff[i]);
-                        }
-                        break;
-                    case DOT.Bleed:
-                        Health -= 8;
-                        DOTTurnsToWearOff[i]--;
-                        if (DOTTurnsToWearOff[i] == 0)
-                        {
-                            ActiveDOTs.Remove(ActiveDOTs[i]);
-                            DOTTurnsToWearOff.Remove(DOTTurnsToWearOff[i]);
-                        }
-                        break;
-                    case DOT.Poison:
-                        Health -= 5;
-                        DOTTurnsToWearOff[i]--;
-                        if (DOTTurnsToWearOff[i] == 0)
-                        {
-                            ActiveDOTs.Remove(ActiveDOTs[i]);
-                            DOTTurnsToWearOff.Remove(DOTTurnsToWearOff[i]);
-                        }
-                        break;
-                }
             }
         }
     }

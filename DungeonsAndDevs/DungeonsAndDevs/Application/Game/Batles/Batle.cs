@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -24,11 +25,9 @@ namespace DungeonsAndDevs.Application.Game.Batles
 
             if (enemy.EnemyType == "Monster")
             {
-                player.Health = enemy.TakeSkillDamage(enemySkill, player.Defense, player.Health);
-
                 if (enemy.Name == "White Shark")
                 {
-                    string shark = $"VORAX (Megalodon) envia seus capangas para te atacar...." +
+                    string shark = $"VORAX (Megalodon) envia seus capangas para te atacar um cardume de {enemy.Name}...." +
                         $"{enemySkill.Name}:{enemySkill.Description}" ;
                     DisplayTextLetterByLetter(shark, 0);
                 }
@@ -36,8 +35,7 @@ namespace DungeonsAndDevs.Application.Game.Batles
                 if (enemy.Name == "Mullet")
                 {
                     string mullets = $"NERIDA (Cursed Mermaid) esta irritadisssima com sua presença ela envia seu exercito de Tainhas para confronta-lo..." +
-                        $"{enemySkill.Name}: O cardume de Tainhas ataca em um frenesi coordenado," +
-                        $" nadando em rápida sucessão e desferindo uma série de golpes rápidos e precisos contra seus adversários.";
+                                     $"{enemySkill.Name}:{enemySkill.Description}";
 
                     DisplayTextLetterByLetter(mullets, 0);
                 }
@@ -45,28 +43,33 @@ namespace DungeonsAndDevs.Application.Game.Batles
                 if (enemy.Name == "Jellyfish")
                 {
                     string jellyFish = $"KRAKEN (Giant Oktopus) esta incredulo que você chegou tão longe, mas ele tem uma arma poderosa não mãos: seu exercito de aguas-vivas..." +
-                        $"{enemySkill.Name}: As Água-vivas disparam uma rede de tentáculos viscosos em direção aos oponentes, causando queimaduras severas.";
+                                       $"{enemySkill.Name}:{enemySkill.Description}";
 
                     DisplayTextLetterByLetter(jellyFish, 0);
                 }
-                string text = $"Maldito bando de {enemy.Name}s é sua hora de revidar:";
+                string text = $"Maldito bando de {enemy.Name}s é sua hora de revidar:\n";
 
                 DisplayTextLetterByLetter(text, 0);
 
                 ShowPlayer(player);
 
-                while (enemy.Health <= 0)
+                while (enemy.Health > 0)
                 {
-                    enemy.Health = player.TakeSkillDamage(ChangeSkill(player), enemy.Defense, enemy.Health);
+                    player.Health = enemy.TakeSkillDamage(enemySkill, player.Defense, player.Health);
 
                     ShowEnemy(enemy);
+
+                    enemy.Health = player.TakeSkillDamage(ChangeSkill(player), enemy.Defense, enemy.Health);
+
+                    ShowPlayer(player);
                 }
+
+                player.XP += enemy.EnemyBaseXP;
+
                 return player;
             }
             else
             {                
-                player.Health = enemy.TakeSkillDamage(enemySkill, player.Defense, player.Health);
-
                 if (enemy.Name == "Vorax (Megalodon)")
                 {
                     string text = $"{enemy.Name} é um gigantesco tubarão pré-histórico que ameaça afundar o barco com " +
@@ -89,14 +92,19 @@ namespace DungeonsAndDevs.Application.Game.Batles
                     DisplayTextLetterByLetter(text, 0);
                 }         
 
-
-                while (enemy.Health <= 0)
+                while (enemy.Health > 0)
                 {
-                    ShowPlayer(player);
-                    enemy.Health = player.TakeSkillDamage(ChangeSkill(player), enemy.Defense, enemy.Health);
+                    player.Health = enemy.TakeSkillDamage(enemySkill, player.Defense, player.Health);
 
                     ShowEnemy(enemy);
+
+                    enemy.Health = player.TakeSkillDamage(ChangeSkill(player), enemy.Defense, enemy.Health);
+
+                    ShowPlayer(player);
                 }
+
+                player.XP += enemy.EnemyBaseXP;
+
                 return player;
             }
         }
@@ -104,11 +112,14 @@ namespace DungeonsAndDevs.Application.Game.Batles
 
         public Skill ChangeSkill(Player player)
         {
-            while (true)
+            bool flag = true;
+            Skill skill = new Skill() { } ;
+
+            while (flag)
             {
                 string txt = $"Escolha a habilidade que deseja usar:\n" +
-                            $"   0 - {player.Skills[0].Name}" +
-                            $"   1 - {player.Skills[1].Name}\n";
+                             $"   0 - {player.Skills[0].Name}" +
+                             $"   1 - {player.Skills[1].Name}\n";
 
                 DisplayTextLetterByLetter(txt, 1);
 
@@ -116,14 +127,17 @@ namespace DungeonsAndDevs.Application.Game.Batles
 
                 if (option == 0 || option == 1)
                 {
-                    if (option == 0) return player.Skills[0];
-                    else return player.Skills[1];
+                    flag = false;
+
+                    if (option == 0) { skill = player.Skills[0]; }
+                    else { skill = player.Skills[1]; }
                 }
                 else
                 {
                     Console.WriteLine("Escolha uma opção valida!");
                 }
             }
+            return skill;
         }
         public void DisplayTextLetterByLetter(string txt, int vel)
         {
@@ -169,30 +183,21 @@ namespace DungeonsAndDevs.Application.Game.Batles
         public void ShowPlayer(Player player)
         {
             Console.WriteLine($" =+=+=+=+=+=+=+=+ Estatisticas do Sr(a) {player.Name} =+=+=+=+=+=+=+=+\n\n" +
-                                $"                  Classe : {player.PlayerClass}\n" +
-                                $"                  Vida : {player.Health} \n" +
-                                $"                  Defesa : {player.Defense} \n" +
-                                $"                  Força : {player.Strength} \n");
+                              $"                  Classe : {player.PlayerClass}\n" +
+                              $"                  Vida : {player.Health} \n" +
+                              $"                  Defesa : {player.Defense} \n" +
+                              $"                  Força : {player.Strength} \n");
 
-            Console.WriteLine("=+=+=+=+=+=+=+=+ Habilidades =+=+=+=+=+=+=+=+\n");
-
-            foreach (var item in player.Skills)
-            {
-                Console.WriteLine($"*********** {item.Name} *********** \n" +
-                                  $"                Tipo : {item.Type}\n" +
-                                  $"                Dano em armadura: {item.ArmorPenetration}\n");
-            }
-
-            Console.WriteLine("=+=+=+=+=+=+=+=+ Vantagens =+=+=+=+=+=+=+=+");
+            Console.WriteLine("                   Vantagens                       ");
             foreach (var item in player.Advantages)
             {
-                Console.WriteLine(item.ToString());
+                Console.WriteLine("+++++++++++++>" + item.ToString());
             }
 
-            Console.WriteLine("=+=+=+=+=+=+=+=+ Desvantagens =+=+=+=+=+=+=+=+");
+            Console.WriteLine("                  Desvantagens             ");
             foreach (var item in player.Disadvantages)
             {
-                Console.WriteLine(item.ToString());
+                Console.WriteLine("------------>" + item.ToString());
             }
             Console.WriteLine("=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n");
         }
@@ -200,12 +205,12 @@ namespace DungeonsAndDevs.Application.Game.Batles
         public void ShowEnemy(Enemy enemy)
         {
 
-            Console.WriteLine($" =+=+=+=+=+=+=+=+ Estatisticas do {enemy.Name} =+=+=+=+=+=+=+=+\n\n" +
-                                $"                  Tipo : {enemy.EnemyType}\n" +
-                                $"                  Vida : {enemy.Health} \n" +
-                                $"                  Defesa : {enemy.Defense} \n" +
-                                $"                  Força : {enemy.Strength} \n" +
-                                $"=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n");
+            Console.WriteLine($"\n~~~~~~~~~~~~~~~~~~~~  Estatisticas do {enemy.Name}  ~~~~~~~~~~~~~~~~~~~~\n" +
+                              $"\n                  Tipo : {enemy.EnemyType}\n" +
+                              $"                  Vida : {enemy.Health} \n" +
+                              $"                  Defesa : {enemy.Defense} \n" +
+                              $"                  Força : {enemy.Strength} \n" +
+                              $"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
         }
     }
 }

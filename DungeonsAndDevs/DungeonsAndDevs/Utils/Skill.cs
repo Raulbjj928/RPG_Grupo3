@@ -27,5 +27,9 @@ namespace DungeonsAndDevs.Utils
 			AoE = aoe;
 			Description = description;
 		}
-	}
+        public Skill()
+        {
+            
+        }
+    }
 }

@@ -22,14 +22,14 @@ namespace DungeonsAndDevs.Entities.Characters.Heros
             Strength = IncreaseStrength(10, Pyrotechnics);
             Defense = 5;
             string descSkill1 = "Dano em área moderado";
-            string descSkill2 = "Dano em área baixo, faz os inimigos atingidos pegarem fogo";
+            //string descSkill2 = "Dano em área baixo, faz os inimigos atingidos pegarem fogo";
             string descSkill3 = "Dano em área alto, demora um turno para ser preparada";
             Skills = new List<Skill>();
             Skill skill1 = new Skill("Dinamite", DamageType.Explosion, 25, 0, true, descSkill1);
-            Skill skill2 = new Skill("Molotov", DamageType.Fire, 5, 0, true, descSkill2);
+            //Skill skill2 = new Skill("Molotov", DamageType.Fire, 5, 0, true, descSkill2);
             Skill skill3 = new Skill("Granada de Ferro", DamageType.Explosion, 15, 50, true, descSkill3);
             Skills.Add(skill1);
-            Skills.Add(skill2);
+            //Skills.Add(skill2);
             Skills.Add(skill3);
 
             Advantages = new List<DamageType>
