@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DungeonsAndDevs.Application.Game;
+using System;
 
 namespace DungeonsAndDevs
 {
@@ -10,7 +7,10 @@ namespace DungeonsAndDevs
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello");
+            GameStart game = new GameStart();
+
+            game.Start();
+            Console.ReadKey();
         }
     }
 }
