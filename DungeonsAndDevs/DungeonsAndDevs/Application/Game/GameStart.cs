@@ -38,9 +38,7 @@ namespace DungeonsAndDevs.Application.Game
             //FASE 1: BOSS MEGALODON
 
 
-            //FASE 2: SEREIA ENVIA CARDUME DE TAINHA
-
-            //FASE 2: BOSS SEREIA
+           
 
             //FASE 3: POLVO GIGA ENVIA AGUAS VIVAS
 
