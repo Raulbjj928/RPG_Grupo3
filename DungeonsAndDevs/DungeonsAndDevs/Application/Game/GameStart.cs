@@ -31,15 +31,16 @@ namespace DungeonsAndDevs.Application.Game
             //int choose = ChangeCharacter();
 
             //escolha do personagem e definição do nome
-            Player player = plot.StartOfTheAdventure(new Player());
-            //player.PlayerClass = (PlayerClass)1;
-            ////player.Name = ChangeName();
-            //player.Name = "Teste";
-            //player.SetInitialStats();
+            //Player player = plot.StartOfTheAdventure(new Player());
+            Player player = new Player();
+            player.PlayerClass = (PlayerClass)1;
+            //player.Name = ChangeName();
+            player.Name = "Teste";
+            player.SetInitialStats();
             //string showPlayer = $"Esses são os dados do seu herói: \n";
             //batles.ShowPlayer(player);
 
-           // batles.DisplayTextLetterByLetter(showPlayer, 1);
+            // batles.DisplayTextLetterByLetter(showPlayer, 1);
 
             //string fase1 = $"Rumores dizem que o tesouro está escondido em uma ilha remota, cercada de perigosas criaturas marinhas." +
             //    $"Nossos heróis partem em um barco robusto, navegando pelos mares tempestuosos até alcançarem a ilha lendária. " +
@@ -66,10 +67,11 @@ namespace DungeonsAndDevs.Application.Game
 
 
             //FASE 1:MEGALODON ENVIA TUBAROES BRANCOS
-
-            player = batles.Combat(player, shark);
+            player = plot.FirstPhase(player, new Shark(), new Megalodon());
+            
             batles.ShowPlayer(player);
             //FASE 1: BOSS MEGALODON
+
 
             //FASE 2: SEREIA ENVIA CARDUME DE TAINHA
 
