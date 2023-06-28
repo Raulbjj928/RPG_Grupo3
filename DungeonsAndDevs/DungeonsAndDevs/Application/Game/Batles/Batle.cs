@@ -90,10 +90,10 @@ namespace DungeonsAndDevs.Application.Game.Batles
                     DisplayTextLetterByLetter(text, 0);
                 }         
 
-                ShowPlayer(player);
 
                 while (enemy.Health <= 0)
                 {
+                    ShowPlayer(player);
                     enemy.Health = player.TakeSkillDamage(ChangeSkill(player), enemy.Defense, enemy.Health);
 
                     ShowEnemy(enemy);
@@ -141,9 +141,9 @@ namespace DungeonsAndDevs.Application.Game.Batles
             while (true)
             {
                 string txt = $"Escolha o herói que deseja para embarcar nessa aventura:\n" +
-                            $"   0 - Mergulhador\n" +
-                            $"   1 - Artilheiro\n" +
-                            $"   2 - Mosqueteiro\n";
+                                $"   0 - Mergulhador\n" +
+                                $"   1 - Artilheiro\n" +
+                                $"   2 - Mosqueteiro\n";
 
                 DisplayTextLetterByLetter(txt, 5);
 

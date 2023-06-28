@@ -15,8 +15,9 @@ namespace DungeonsAndDevs.Application.Game
 
         ImagesAsc imgsAsc = new ImagesAsc() { };
         Batle batles = new Batle();
+        Plot plot = new Plot();
 
-        Enemy enemy = new Enemy();  
+        Enemy shark = new Shark();  
 
         public void Start()
         {
@@ -30,15 +31,15 @@ namespace DungeonsAndDevs.Application.Game
             //int choose = ChangeCharacter();
 
             //escolha do personagem e definição do nome
-            Player player = new Player();
-            player.PlayerClass = (PlayerClass)0;
-            //player.Name = ChangeName();
-            player.Name = "Teste";
-            player.SetInitialStats();
-            string showPlayer = $"Esses são os dados do seu herói: \n";
-            batles.ShowPlayer(player);
+            Player player = plot.StartOfTheAdventure(new Player());
+            //player.PlayerClass = (PlayerClass)1;
+            ////player.Name = ChangeName();
+            //player.Name = "Teste";
+            //player.SetInitialStats();
+            //string showPlayer = $"Esses são os dados do seu herói: \n";
+            //batles.ShowPlayer(player);
 
-            batles.DisplayTextLetterByLetter(showPlayer, 1);
+           // batles.DisplayTextLetterByLetter(showPlayer, 1);
 
             //string fase1 = $"Rumores dizem que o tesouro está escondido em uma ilha remota, cercada de perigosas criaturas marinhas." +
             //    $"Nossos heróis partem em um barco robusto, navegando pelos mares tempestuosos até alcançarem a ilha lendária. " +
@@ -47,27 +48,27 @@ namespace DungeonsAndDevs.Application.Game
             //    $"poderosos ataques. O mergulhador mergulha nas profundezas, " +
             //    $"enfrentando o Megalodon em um combate tenso e mortal.";
 
-            batles.ShowPlayer(player);
+            //batles.ShowPlayer(player);
             //batles.DisplayTextLetterByLetter(fase1, 1);
             //player = batles.Combat(player,);
 
-            imgsAsc.Megalodon();
+            //imgsAsc.Megalodon();
 
-            string txt1 = $"Para impedir que você chegue ao tesouro Megalodon envia seu exercito de tubarões brancos para ataca-lo\n" +
-                          $"Você precisa reagir escolha uma habilidae para ataca-lo tambem: ";
+            //string txt1 = $"Para impedir que você chegue ao tesouro Megalodon envia seu exercito de tubarões brancos para ataca-lo\n" +
+            //              $"Você precisa reagir escolha uma habilidae para ataca-lo tambem: ";
 
-            batles.DisplayTextLetterByLetter(txt1, 1);
-            player.Health = player.TakeSkillDamage(batles.ChangeSkill(player), player.Defense, player.Health);
+            //batles.DisplayTextLetterByLetter(txt1, 1);
+            //player.Health = player.TakeSkillDamage(batles.ChangeSkill(player), player.Defense, player.Health);
 
-            batles.ShowPlayer(player);
+            //batles.ShowPlayer(player);
             //metodo de batalha
-            Console.ReadLine();
 
 
 
             //FASE 1:MEGALODON ENVIA TUBAROES BRANCOS
 
-
+            player = batles.Combat(player, shark);
+            batles.ShowPlayer(player);
             //FASE 1: BOSS MEGALODON
 
             //FASE 2: SEREIA ENVIA CARDUME DE TAINHA
@@ -80,7 +81,7 @@ namespace DungeonsAndDevs.Application.Game
 
             //EXIBIR XP, PONTOS, VIDA ETC...
 
-            Console.WriteLine();
+            Console.ReadLine();
         }
     }
 }

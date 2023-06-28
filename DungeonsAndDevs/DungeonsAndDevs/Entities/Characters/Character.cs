@@ -49,6 +49,7 @@ namespace DungeonsAndDevs.Entities.Characters
         protected void ApplyDOT(DamageType damageType)
         {
             Random random = new Random();
+            ActiveDOTs = ActiveDOTs ?? new List<DOT>();
             int proc;
             switch (damageType)
             {
