@@ -1,8 +1,6 @@
 ﻿using DungeonsAndDevs.Entities.Characters;
 using DungeonsAndDevs.Entities.Characters.Heros;
-using DungeonsAndDevs.Utils;
 using System;
-using System.Collections.Generic;
 
 namespace DungeonsAndDevs.Entidades.Characters.Players
 {

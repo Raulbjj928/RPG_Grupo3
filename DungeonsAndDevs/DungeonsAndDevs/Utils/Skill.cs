@@ -10,7 +10,7 @@ public enum DOT
 
 namespace DungeonsAndDevs.Utils
 {
-	public class Skill
+    public class Skill
 	{
 		public string Name { get; private set; }
 		public DamageType Type { get; private set; }
