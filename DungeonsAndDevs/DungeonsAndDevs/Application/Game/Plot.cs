@@ -49,29 +49,15 @@ namespace DungeonsAndDevs.Application.Game
 
             batles.DisplayTextLetterByLetter(phaseText, 1);
 
-            player = batles.Combat(player, monster);
-
             imgsAsc.Megalodon();
 
-            string txt1 = $"Para impedir que você chegue ao tesouro Megalodon envia seu exercito de tubarões brancos para ataca-lo\n" +
-                          $"Você precisa reagir escolha uma habilidae para ataca-lo tambem: ";
+            player = batles.Combat(player, monster);
 
-            batles.DisplayTextLetterByLetter(txt1, 1);
-
-            player.Health = player.TakeSkillDamage(batles.ChangeSkill(player), player.Defense, player.Health);
-
-            //metodo de batalha
-
-
-
-            //FASE 1:MEGALODON ENVIA TUBAROES BRANCOS
-
-            //player = batles.Combat(player, new Shark());
-            //batles.ShowPlayer(player);
-
-            //FASE 1: BOSS MEGALODON
             player = batles.Combat(player, boss);
+
             batles.ShowPlayer(player);
+
+            Console.WriteLine($"XP Adquirido/ XP total: {monster.EnemyBaseXP}/ {player.XP} ");
 
             return player;
         }
@@ -82,27 +68,16 @@ namespace DungeonsAndDevs.Application.Game
 
             batles.DisplayTextLetterByLetter(phaseText, 1);
 
-            player = batles.Combat(player, monster);
-
             imgsAsc.Mermaid();
 
-            string txt1 = $"Para impedir que você chegue ao tesouro Megalodon envia seu exercito de tubarões brancos para ataca-lo\n" +
-                          $"Você precisa reagir escolha uma habilidae para ataca-lo tambem: ";
+            player = batles.Combat(player, monster);
 
-            batles.DisplayTextLetterByLetter(txt1, 1);
+            Console.WriteLine($"XP Adquirido/ XP total: {monster.EnemyBaseXP}/ {player.XP} ");
 
-            player.Health = player.TakeSkillDamage(batles.ChangeSkill(player), player.Defense, player.Health);
+            player = batles.Combat(player, boss);
 
-            //metodo de batalha
+            Console.WriteLine($"XP Adquirido/ XP total: {monster.EnemyBaseXP}/ {player.XP} ");
 
-
-
-            //FASE 1:MEGALODON ENVIA TUBAROES BRANCOS
-
-            //player = batles.Combat(player, new Shark());
-            //batles.ShowPlayer(player);
-
-            //FASE 1: BOSS MEGALODON
             player = batles.Combat(player, boss);
             batles.ShowPlayer(player);
 

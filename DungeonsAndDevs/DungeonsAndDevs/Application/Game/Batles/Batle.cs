@@ -18,22 +18,20 @@ namespace DungeonsAndDevs.Application.Game.Batles
 
         public Player Combat(Player player, Enemy enemy)
         {
-            Random random = new Random();
-
-            int amountOfSkills = enemy.Skills.Count();
-            Skill enemySkill = enemy.Skills[random.Next(0, amountOfSkills - 1)];
-
+            Skill enemySkill = new Skill();
             if (enemy.EnemyType == "Monster")
             {
                 if (enemy.Name == "White Shark")
                 {
-                    string shark = $"VORAX (Megalodon) envia seus capangas para te atacar um cardume de {enemy.Name}...." +
+                    enemySkill = ReturnRandomSkill(enemy);
+                    string shark = $"VORAX (Megalodon) envia seus capangas para te atacar: um cardume de {enemy.Name}...." +
                         $"{enemySkill.Name}:{enemySkill.Description}" ;
                     DisplayTextLetterByLetter(shark, 0);
                 }
 
                 if (enemy.Name == "Mullet")
                 {
+                    enemySkill = ReturnRandomSkill(enemy);
                     string mullets = $"NERIDA (Cursed Mermaid) esta irritadisssima com sua presença ela envia seu exercito de Tainhas para confronta-lo..." +
                                      $"{enemySkill.Name}:{enemySkill.Description}";
 
@@ -42,6 +40,7 @@ namespace DungeonsAndDevs.Application.Game.Batles
 
                 if (enemy.Name == "Jellyfish")
                 {
+                    enemySkill = ReturnRandomSkill(enemy);
                     string jellyFish = $"KRAKEN (Giant Oktopus) esta incredulo que você chegou tão longe, mas ele tem uma arma poderosa não mãos: seu exercito de aguas-vivas..." +
                                        $"{enemySkill.Name}:{enemySkill.Description}";
 
@@ -55,10 +54,14 @@ namespace DungeonsAndDevs.Application.Game.Batles
 
                 while (enemy.Health > 0)
                 {
-                    player.Health = enemy.TakeSkillDamage(enemySkill, player.Defense, player.Health);
+                    enemySkill = ReturnRandomSkill(enemy);
+                    Console.WriteLine($"\n*** *** *** ATAQUE INIMGO *** *** ***\n" +
+                                      $"{enemySkill.Name} : {enemySkill.Description}");
 
+                    player.Health = enemy.TakeSkillDamage(enemySkill, player.Defense, player.Health);
                     ShowEnemy(enemy);
 
+                    Console.WriteLine($"\n ### ### ###  SEU ATAQUE ### ### ###\n");
                     enemy.Health = player.TakeSkillDamage(ChangeSkill(player), enemy.Defense, enemy.Health);
 
                     ShowPlayer(player);
@@ -72,6 +75,7 @@ namespace DungeonsAndDevs.Application.Game.Batles
             {                
                 if (enemy.Name == "Vorax (Megalodon)")
                 {
+                    enemySkill = ReturnRandomSkill(enemy);
                     string text = $"{enemy.Name} é um gigantesco tubarão pré-histórico que ameaça afundar o barco com " +
                         $"seus poderosos ataques. O combate ira ser tenso e mortal.";
 
@@ -80,6 +84,7 @@ namespace DungeonsAndDevs.Application.Game.Batles
                 
                 if (enemy.Name == "Nerida (Cursed Mermaid)")
                 {
+                    enemySkill = ReturnRandomSkill(enemy);
                     string text = $"A {enemy.Name}, uma criatura bela e traiçoeira que tenta seduzir e enfeitiçar a tripulação...";
 
                     DisplayTextLetterByLetter(text, 0);
@@ -87,6 +92,8 @@ namespace DungeonsAndDevs.Application.Game.Batles
                 
                 if (enemy.Name == "Kraken (Giant Oktopus)")
                 {
+                    enemySkill = ReturnRandomSkill(enemy);
+
                     string text = $"O {enemy.Name} furioso emerge das profundezas, com seus tentáculos poderosos ameaçando destruir o barco";
 
                     DisplayTextLetterByLetter(text, 0);
@@ -94,10 +101,14 @@ namespace DungeonsAndDevs.Application.Game.Batles
 
                 while (enemy.Health > 0)
                 {
-                    player.Health = enemy.TakeSkillDamage(enemySkill, player.Defense, player.Health);
+                    enemySkill = ReturnRandomSkill(enemy);
+                    Console.WriteLine($"*** *** *** ATAQUE INIMGO *** *** ***" +
+                                      $"{enemySkill.Name} : {enemySkill.Description}");
 
+                    player.Health = enemy.TakeSkillDamage(enemySkill, player.Defense, player.Health);
                     ShowEnemy(enemy);
 
+                    Console.WriteLine($"### ### ###  SEU ATAQUE ### ### ###");
                     enemy.Health = player.TakeSkillDamage(ChangeSkill(player), enemy.Defense, enemy.Health);
 
                     ShowPlayer(player);
@@ -109,6 +120,13 @@ namespace DungeonsAndDevs.Application.Game.Batles
             }
         }
 
+        private Skill ReturnRandomSkill(Enemy enemy)
+        {
+            Random random = new Random();
+
+            return enemy.Skills[random.Next(0, enemy.Skills.Count() - 1)];
+
+        }
 
         public Skill ChangeSkill(Player player)
         {
@@ -182,35 +200,35 @@ namespace DungeonsAndDevs.Application.Game.Batles
         }
         public void ShowPlayer(Player player)
         {
-            Console.WriteLine($" =+=+=+=+=+=+=+=+ Estatisticas do Sr(a) {player.Name} =+=+=+=+=+=+=+=+\n\n" +
-                              $"                  Classe : {player.PlayerClass}\n" +
-                              $"                  Vida : {player.Health} \n" +
-                              $"                  Defesa : {player.Defense} \n" +
-                              $"                  Força : {player.Strength} \n");
+            Console.WriteLine($"+=+=+=+=+=+=+=+=+ Estatisticas do Sr(a) {player.Name} +=+=+=+=+=+=+=+=+\n\n" +
+                              $"                  Classe      : {player.PlayerClass}\n" +
+                              $"                  Vida        : {player.Health}     \n" +
+                              $"                  Defesa      : {player.Defense}    \n" +
+                              $"                  Força       : {player.Strength}   \n");
 
-            Console.WriteLine("                   Vantagens                       ");
+            Console.WriteLine($"                  Vantagens                          ");
             foreach (var item in player.Advantages)
             {
-                Console.WriteLine("+++++++++++++>" + item.ToString());
+            Console.WriteLine("                            +++ " + item.ToString());
             }
 
-            Console.WriteLine("                  Desvantagens             ");
+            Console.WriteLine($"                  Desvantagens             ");
             foreach (var item in player.Disadvantages)
             {
-                Console.WriteLine("------------>" + item.ToString());
+            Console.WriteLine("                            --- " + item.ToString());
             }
-            Console.WriteLine("=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n");
+            Console.WriteLine("+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n");
         }
 
         public void ShowEnemy(Enemy enemy)
         {
 
-            Console.WriteLine($"\n~~~~~~~~~~~~~~~~~~~~  Estatisticas do {enemy.Name}  ~~~~~~~~~~~~~~~~~~~~\n" +
-                              $"\n                  Tipo : {enemy.EnemyType}\n" +
-                              $"                  Vida : {enemy.Health} \n" +
-                              $"                  Defesa : {enemy.Defense} \n" +
-                              $"                  Força : {enemy.Strength} \n" +
-                              $"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+            Console.WriteLine($"*#*#*#*#*#*#*#*#* Estatisticas do {enemy.Name}  *#*#*#*#*#*#*#*#*\n\n" +
+                              $"                  Tipo        : {enemy.EnemyType}\n" +
+                              $"                  Vida        : {enemy.Health}   \n" +
+                              $"                  Defesa      : {enemy.Defense}  \n" +
+                              $"                  Força       : {enemy.Strength} \n");
+            Console.WriteLine("*#*#*#*#*#*#*#*#*#**#*#*#*#*#*#*#*#*#**#*#*#*#*#*#*#*#*#*#*#*#*\n");
         }
     }
 }
