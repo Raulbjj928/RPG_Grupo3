@@ -31,11 +31,12 @@ namespace DungeonsAndDevs.Application.Game
             //int choose = ChangeCharacter();
 
             //escolha do personagem e definição do nome
-            Player player = plot.StartOfTheAdventure(new Player());
-            //player.PlayerClass = (PlayerClass)1;
+           //Player player = plot.StartOfTheAdventure(new Player());
+            Player player = new Player();
+            player.PlayerClass = (PlayerClass)1;
             ////player.Name = ChangeName();
-            //player.Name = "Teste";
-            //player.SetInitialStats();
+            player.Name = "Teste";
+            player.SetInitialStats();
             //string showPlayer = $"Esses são os dados do seu herói: \n";
             //batles.ShowPlayer(player);
 
