@@ -200,35 +200,35 @@ namespace DungeonsAndDevs.Application.Game.Batles
         }
         public void ShowPlayer(Player player)
         {
-            Console.WriteLine($" =+=+=+=+=+=+=+=+ Estatisticas do Sr(a) {player.Name} =+=+=+=+=+=+=+=+\n\n" +
-                              $"                  Classe : {player.PlayerClass}\n" +
-                              $"                  Vida : {player.Health} \n" +
-                              $"                  Defesa : {player.Defense} \n" +
-                              $"                  Força : {player.Strength} \n");
+            Console.WriteLine($"+=+=+=+=+=+=+=+=+ Estatisticas do Sr(a) {player.Name} +=+=+=+=+=+=+=+=+\n\n" +
+                              $"                  Classe      : {player.PlayerClass}\n" +
+                              $"                  Vida        : {player.Health}     \n" +
+                              $"                  Defesa      : {player.Defense}    \n" +
+                              $"                  Força       : {player.Strength}   \n");
 
-            Console.WriteLine("                   Vantagens                       ");
+            Console.WriteLine($"                  Vantagens                          ");
             foreach (var item in player.Advantages)
             {
-                Console.WriteLine("+++++++++++++>" + item.ToString());
+            Console.WriteLine("                            +++ " + item.ToString());
             }
 
-            Console.WriteLine("                  Desvantagens             ");
+            Console.WriteLine($"                  Desvantagens             ");
             foreach (var item in player.Disadvantages)
             {
-                Console.WriteLine("------------>" + item.ToString());
+            Console.WriteLine("                            --- " + item.ToString());
             }
-            Console.WriteLine("=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n");
+            Console.WriteLine("+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n");
         }
 
         public void ShowEnemy(Enemy enemy)
         {
 
-            Console.WriteLine($"\n~~~~~~~~~~~~~~~~~~~~  Estatisticas do {enemy.Name}  ~~~~~~~~~~~~~~~~~~~~\n" +
-                              $"\n                  Tipo : {enemy.EnemyType}\n" +
-                              $"                  Vida : {enemy.Health} \n" +
-                              $"                  Defesa : {enemy.Defense} \n" +
-                              $"                  Força : {enemy.Strength} \n" +
-                              $"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+            Console.WriteLine($"*#*#*#*#*#*#*#*#* Estatisticas do {enemy.Name}  *#*#*#*#*#*#*#*#*\n\n" +
+                              $"                  Tipo        : {enemy.EnemyType}\n" +
+                              $"                  Vida        : {enemy.Health}   \n" +
+                              $"                  Defesa      : {enemy.Defense}  \n" +
+                              $"                  Força       : {enemy.Strength} \n");
+            Console.WriteLine("*#*#*#*#*#*#*#*#*#**#*#*#*#*#*#*#*#*#**#*#*#*#*#*#*#*#*#*#*#*#*\n");
         }
     }
 }
