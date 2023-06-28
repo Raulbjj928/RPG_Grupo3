@@ -20,10 +20,13 @@ namespace DungeonsAndDevs.Entities.Characters.Heros
             Health = IncreaseHealth(100, Preparation);
             Strength = 12;
             Defense = 10;
+            string descSkill1 = "Dano padrão, sem efeitos";
+            string descSkill2 = "Dano reduzido em 30%, mas ignora 50% da armadura do inimigo";
+            string descSkill3 = "Dano reduzido em 50%, mas faz o inimigo pegar fogo";
             Skills = new List<Skill>();
-            Skill skill1 = new Skill("Tiro de Concussão", DamageType.Impact, 20, 0, false);
-            Skill skill2 = new Skill("Tiro Penetrante", DamageType.Puncture, 16, 50, false);
-            Skill skill3 = new Skill("Tiro Inflamável", DamageType.Explosion, 10, 0, false);
+            Skill skill1 = new Skill("Tiro de Concussão", DamageType.Impact, 20, 0, false, descSkill1);
+            Skill skill2 = new Skill("Tiro Penetrante", DamageType.Puncture, 16, 50, false, descSkill2);
+            Skill skill3 = new Skill("Tiro Inflamável", DamageType.Explosion, 10, 0, false, descSkill3);
             Skills.Add(skill1);
             Skills.Add(skill2);
             Skills.Add(skill3);

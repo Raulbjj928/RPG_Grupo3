@@ -29,8 +29,7 @@ namespace DungeonsAndDevs.Application.Game.Batles
                 if (enemy.Name == "White Shark")
                 {
                     string shark = $"VORAX (Megalodon) envia seus capangas para te atacar...." +
-                        $"{enemySkill.Name}: um cardume de Tubarões Brancos desencadeia toda a sua ferocidade em um ataque implacável, " +
-                        $"como se as profundezas do oceano se revoltassem contra seus inimigos.";
+                        $"{enemySkill.Name}:{enemySkill.Description}" ;
                     DisplayTextLetterByLetter(shark, 0);
                 }
 

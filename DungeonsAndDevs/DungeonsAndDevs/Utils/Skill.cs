@@ -17,13 +17,15 @@ namespace DungeonsAndDevs.Utils
 		public int BaseDmg { get; private set; }
 		public int ArmorPenetration { get; private set; }
 		public bool AoE { get; private set; }
-		public Skill(string name, DamageType type, int baseDmg, int armorPenetration, bool aoe)
+        public string Description { get; private set; }
+        public Skill(string name, DamageType type, int baseDmg, int armorPenetration, bool aoe, string description)
 		{
 			Name = name;
 			Type = type;
 			BaseDmg = baseDmg;
 			ArmorPenetration = armorPenetration;
 			AoE = aoe;
+			Description = description;
 		}
 	}
 }
