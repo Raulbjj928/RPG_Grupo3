@@ -10,20 +10,26 @@ public enum DOT
 
 namespace DungeonsAndDevs.Utils
 {
-	public class Skill
+    public class Skill
 	{
 		public string Name { get; private set; }
 		public DamageType Type { get; private set; }
 		public int BaseDmg { get; private set; }
 		public int ArmorPenetration { get; private set; }
 		public bool AoE { get; private set; }
-		public Skill(string name, DamageType type, int baseDmg, int armorPenetration, bool aoe)
+        public string Description { get; private set; }
+        public Skill(string name, DamageType type, int baseDmg, int armorPenetration, bool aoe, string description)
 		{
 			Name = name;
 			Type = type;
 			BaseDmg = baseDmg;
 			ArmorPenetration = armorPenetration;
 			AoE = aoe;
+			Description = description;
 		}
-	}
+        public Skill()
+        {
+            
+        }
+    }
 }

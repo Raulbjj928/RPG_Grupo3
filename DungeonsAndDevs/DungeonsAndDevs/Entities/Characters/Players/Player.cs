@@ -1,8 +1,6 @@
 ﻿using DungeonsAndDevs.Entities.Characters;
 using DungeonsAndDevs.Entities.Characters.Heros;
-using DungeonsAndDevs.Utils;
 using System;
-using System.Collections.Generic;
 
 namespace DungeonsAndDevs.Entidades.Characters.Players
 {
@@ -14,6 +12,7 @@ namespace DungeonsAndDevs.Entidades.Characters.Players
     public class Player : Character
     {
         public PlayerClass PlayerClass { get; set; }
+        public int XP { get; set; }
         public void SetInitialStats()
         {
             if (string.IsNullOrWhiteSpace(Name))
